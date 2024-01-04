@@ -1,0 +1,73 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+			"name": "Run Demo [FROM EDITOR] - [DEBUG MODE]",
+			"type": "cppvsdbg",
+			"request": "launch",
+			"program": "C:/Program Files (x86)/Steam/steamapps/common/Godot Engine/godot.windows.opt.tools.64.exe",
+			"args": [
+				"--editor",
+				"--path",
+				"${workspaceFolder}/game",
+				"--verbose",
+				"--debug",
+				"--stdout"
+			],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"console": "internalConsole",
+		},
+        {
+			"name": "Run Demo [FROM GAME] - [DEBUG MODE]",
+			"type": "cppvsdbg",
+			"request": "launch",
+			"program": "C:/Program Files (x86)/Steam/steamapps/common/Godot Engine/godot.windows.opt.tools.64.exe",
+			"args": [
+				"--path",
+				"${workspaceFolder}/game",
+				"--verbose",
+				"--debug",
+				"--stdout"
+			],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"console": "internalConsole",
+		},
+        {
+			"name": "Run Demo [FROM EDITOR] - [TEST MODE]",
+			"type": "cppvsdbg",
+			"request": "launch",
+			"program": "C:/Program Files (x86)/Steam/steamapps/common/Godot Engine/godot.windows.opt.tools.64.exe",
+			"args": [
+				"--editor",
+				"--path",
+				"${workspaceFolder}/game",
+			],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"console": "internalConsole",
+		},
+        {
+			"name": "Run Demo [FROM GAME] - [TEST MODE]",
+			"type": "cppvsdbg",
+			"request": "launch",
+			"program": "C:/Program Files (x86)/Steam/steamapps/common/Godot Engine/godot.windows.opt.tools.64.exe",
+			"args": [
+				"--path",
+				"${workspaceFolder}/game",
+			],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"console": "internalConsole",
+		},
+    ]
+}
+
