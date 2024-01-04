@@ -12,7 +12,7 @@ For simplicity this repository distributes a compiled version of [libxmp-lite](h
 Module files are included with this module for testing purpose; see `game/CREDITS` for details.
 
 ## Cloning the Extension
-Since this project includes `godot-cpp` as a submodule, you'll have to clone it with `git clone --submodule`.
+Since this project includes `godot-cpp` as a submodule, you'll have to clone it with `git clone --recurse-submodules`.
 
 ## Using the Extension
 After building the extension successfully (see below), open `game/project.godot` in Godot Project Manager, and run it. You'll hear a module being played.
