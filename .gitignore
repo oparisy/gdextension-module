@@ -11,8 +11,9 @@
 *.pyc
 *.dblite
 *.pdb
-/game/bin/*.lib
-/game/bin/*.dll
+/game/bin/libgdaudiostreammodule.**.lib
+/game/bin/libgdaudiostreammodule.*.dll
+/game/bin/~*.dll
 *.config
 *.creator
 *.creator.user
