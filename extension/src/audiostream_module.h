@@ -60,6 +60,10 @@ private:
     xmp_context ctx;
     xmp_module_info info;
 
+    // Performance-related fields
+    Array stats;
+    uint64_t last_stats_log;
+
 public:
     AudioStreamPlaybackModule();
     ~AudioStreamPlaybackModule();
