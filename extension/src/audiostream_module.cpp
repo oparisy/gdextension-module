@@ -7,9 +7,6 @@
 #include <godot_cpp/variant/utility_functions.hpp>
 
 
-// Native Godot sample rate (use AudioStreamPlaybackResampled for other values)
-const int MIX_RATE=44100;
-
 // A buffer of about 93ms (at 44100 mix rate)
 const int PCM_BUFFER_SIZE = 4096 * 4;
 
@@ -32,12 +29,14 @@ void AudioStreamModule::_bind_methods() {
 #define zeromem(to, count) memset(to, 0, count)
 
 AudioStreamPlaybackModule::AudioStreamPlaybackModule()
-	: mix_rate(MIX_RATE), active(false), last_stats_log(0) {
+	: mix_rate(MIN(AudioServer::get_singleton()->get_mix_rate(), XMP_MAX_SRATE)),
+	  active(false), last_stats_log(0) {
 	// TODO Is locking actually required?
 	AudioServer::get_singleton()->lock();
 	pcm_buffer = memalloc(PCM_BUFFER_SIZE);
 	zeromem(pcm_buffer, PCM_BUFFER_SIZE);
 	AudioServer::get_singleton()->unlock();
+	UtilityFunctions::print(String("AudioStreamPlaybackModule will use a mix rate of %d") % (int64_t) mix_rate);
 }
 
 AudioStreamPlaybackModule::~AudioStreamPlaybackModule() {
@@ -53,6 +52,10 @@ AudioStreamPlaybackModule::~AudioStreamPlaybackModule() {
 
 void AudioStreamPlaybackModule::_bind_methods() {
 	// Required by GDCLASS macro
+}
+
+double AudioStreamPlaybackModule::_get_stream_sampling_rate() const {
+	return mix_rate;
 }
 
 void AudioStreamPlaybackModule::setAudioStream(Ref<AudioStreamModule> audioStream) {
@@ -93,7 +96,7 @@ bool AudioStreamPlaybackModule::_is_playing() const {
 	return active;
 }
 
-int32_t AudioStreamPlaybackModule::_mix(AudioFrame *buffer, double rate_scale, int32_t frames) {
+int32_t AudioStreamPlaybackModule::_mix_resampled(AudioFrame *buffer, int32_t frames) {
 
 	uint64_t start = Time::get_singleton()->get_ticks_usec();
 
@@ -152,7 +155,7 @@ int32_t AudioStreamPlaybackModule::_mix(AudioFrame *buffer, double rate_scale, i
 		String min_str = String("%3d") % min;
 		String max_str = String("%3d") % max;
 		UtilityFunctions::print(String(U"During the last 5 seconds, {0} arrays of {1} frames (which is {2}µs) were computed in min {3}µs, max {4}µs")
-			.format(Array::make(stats.size(), frames, (int) (frames * 1000 * 1000 / MIX_RATE), min_str, max_str)));
+			.format(Array::make(stats.size(), frames, (int) (frames * 1000 * 1000 / mix_rate), min_str, max_str)));
 		stats.clear();
 	}
 

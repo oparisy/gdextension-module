@@ -12,7 +12,7 @@
 #include <godot_cpp/classes/ref.hpp>
 #include <godot_cpp/classes/resource.hpp>
 #include <godot_cpp/classes/audio_stream.hpp>
-#include <godot_cpp/classes/audio_stream_playback.hpp>
+#include <godot_cpp/classes/audio_stream_playback_resampled.hpp>
 #include <godot_cpp/variant/string.hpp>
 
 // Required as per https://github.com/godotengine/godot-cpp/issues/1207
@@ -48,8 +48,8 @@ protected:
     static void _bind_methods();
 };
 
-class AudioStreamPlaybackModule : public AudioStreamPlayback {
-    GDCLASS(AudioStreamPlaybackModule, AudioStreamPlayback)
+class AudioStreamPlaybackModule : public AudioStreamPlaybackResampled {
+    GDCLASS(AudioStreamPlaybackModule, AudioStreamPlaybackResampled)
     friend class AudioStreamModule;
 
 private:
@@ -67,14 +67,15 @@ private:
 public:
     AudioStreamPlaybackModule();
     ~AudioStreamPlaybackModule();
-
+  
     /**
      * "AudioStreamPlayer uses mix callback to obtain PCM data.
      *  The callback must match sample rate and fill the buffer.
      *  Since AudioStreamPlayback is controlled by the audio thread,
      *  i/o and dynamic memory allocation are forbidden."
     */
-    int32_t _mix(AudioFrame *buffer, double rate_scale, int32_t frames) override;
+   int32_t _mix_resampled(AudioFrame *dst_buffer, int32_t frame_count) override;
+   double _get_stream_sampling_rate() const override;
 
     bool _is_playing() const override;
     void _start(double from_pos) override;
