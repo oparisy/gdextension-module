@@ -151,7 +151,7 @@ int32_t AudioStreamPlaybackModule::_mix(AudioFrame *buffer, double rate_scale, i
 		// We make the hypothesis that the number of requested frames is constant
 		String min_str = String("%3d") % min;
 		String max_str = String("%3d") % max;
-		UtilityFunctions::print(String(U"During the last 5 seconds, {0} arrays of {1} frames (which is {2}µs) where computed in min {3}µs, max {4}µs")
+		UtilityFunctions::print(String(U"During the last 5 seconds, {0} arrays of {1} frames (which is {2}µs) were computed in min {3}µs, max {4}µs")
 			.format(Array::make(stats.size(), frames, (int) (frames * 1000 * 1000 / MIX_RATE), min_str, max_str)));
 		stats.clear();
 	}
