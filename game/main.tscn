@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgm4ah3j8jxke"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ptcg0"]
-[ext_resource type="AudioStream" path="res://tobleron.mod" id="2_iyedv"]
-[ext_resource type="AudioStream" path="res://2peaks.mod" id="3_mhks5"]
+[ext_resource type="AudioStream" path="res://musix-wild-perspective.mod" id="2_yxki3"]
+[ext_resource type="AudioStream" path="res://dailyagony.xm" id="3_eo4g1"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ptcg0")
 
-[node name="AudioStreamPlayerToblerone" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_iyedv")
+[node name="AudioStreamPlayerMOD" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yxki3")
 
-[node name="AudioStreamPlayerTwinPeaks" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_mhks5")
+[node name="AudioStreamPlayerXM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_eo4g1")

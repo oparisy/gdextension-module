@@ -9,7 +9,7 @@ This is mostly a proof of concept, but I'm open to PRs if this proves useful to 
 ## Credits & Distribution
 For simplicity this repository distributes a compiled version of [libxmp-lite](https://github.com/libxmp/libxmp/tree/master/lite) for Windows, in conformance with [its MIT license](https://github.com/libxmp/libxmp/blob/master/README). I'm open to PRs automating its compilation from Scons.
 
-Module files are included with this module for testing purpose; see `game/CREDITS` for details.
+Public Domain module files are included with this module for testing purpose; see `game/CREDITS` for details.
 
 ## Cloning the Extension
 Since this project includes `godot-cpp` as a submodule, you'll have to clone it with `git clone --recurse-submodules`.
