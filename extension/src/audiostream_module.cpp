@@ -1,5 +1,7 @@
 #include "audiostream_module.h"
 
+#include <climits>
+
 #include <godot_cpp/classes/audio_frame.hpp>
 #include <godot_cpp/classes/audio_server.hpp>
 #include <godot_cpp/classes/time.hpp>
