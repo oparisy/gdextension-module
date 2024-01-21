@@ -31,7 +31,8 @@ libxmp_source.append(["libxmp/src/loaders/{}".format(f) for f in LIBXMP_LITE_LOA
 # Not cloned from godot-cpp Environment since libxmp does not depend on it
 libxmp_env = Environment(CPPPATH=["libxmp/include/"])
 libxmp_env.Append(CCFLAGS=["-DLIBXMP_CORE_PLAYER", "-DLIBXMP_STATIC"])
-libxmp_lib = libxmp_env.StaticLibrary('libxmp-lite', libxmp_source)
+libxmp_obj = [libxmp_env.SharedObject(f) for f in libxmp_source] # Make sure -fPIC is added under Linux
+libxmp_lib = libxmp_env.StaticLibrary('libxmp-lite', libxmp_obj)
 
 # GDExtension environment is cloned to avoid altering godot-cpp CPPPATH
 env = godot_cpp_env.Clone()
