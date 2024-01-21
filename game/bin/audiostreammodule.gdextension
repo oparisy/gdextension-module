@@ -13,11 +13,3 @@ windows.x86_64.debug = "res://bin/libgdaudiostreammodule.windows.template_debug.
 windows.x86_64.release = "res://bin/libgdaudiostreammodule.windows.template_release.x86_64.dll"
 macos.debug = "res://bin/summator.macos.template_debug.framework"
 macos.release = "res://bin/libgdaudiostreammodule.macos.template_release.framework"
-
-[dependencies]
-windows.debug.x86_64 = {
-    "res://bin/libxmp-lite.dll" : ""
-}
-windows.release..x86_64 = {
-    "res://bin/libxmp-lite.dll" : ""
-}
