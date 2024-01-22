@@ -9,12 +9,14 @@ This is mostly a proof of concept, but I'm open to PRs if this proves useful to 
 If you test this in the editor, by setting the `Playing` property to `true` there, you may get audio glitches. This is due to the fact that editor windows are running with default priority. This will not happen whith a script/game, since thore are run with a higher priority ([as can be seen here](https://github.com/godotengine/godot/blob/9b522ac1a85cab1a7a867b7a9f3bb102d9376ac2/platform/windows/display_server_windows.cpp#L4800-L4815)).
 
 ## Credits & Distribution
-For simplicity this repository distributes a compiled version of [libxmp-lite](https://github.com/libxmp/libxmp/tree/master/lite) for Windows, in conformance with [its MIT license](https://github.com/libxmp/libxmp/blob/master/README). I'm open to PRs automating its compilation from Scons.
+This repository includes [libxmp](https://github.com/libxmp/libxmp) as a submodule, 
+in conformance with [its MIT license](https://github.com/libxmp/libxmp/blob/master/README).
+Scons will include it to the GDExtension library during build.
 
 Public Domain module files are included with this module for testing purpose; see `game/CREDITS` for details.
 
 ## Cloning the Extension
-Since this project includes `godot-cpp` as a submodule, you'll have to clone it with `git clone --recurse-submodules`.
+Since this project includes `godot-cpp` and `libxmp` as a submodule, you'll have to clone it with `git clone --recurse-submodules`.
 
 ## Using the Extension
 After building the extension successfully (see below), open `game/project.godot` in Godot Project Manager, and run it. You'll hear a module being played.
