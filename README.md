@@ -17,7 +17,8 @@ Public Domain module files are included with this module for testing purpose; se
 ## Using the Extension
 After cloning and building the extension (see below), open `game/project.godot` in Godot Project Manager, and run it. You'll hear a module being played.
 
-If you test this in the editor, by setting the `Playing` property to `true` there, you may get audio glitches. This is due to the fact that editor windows are running with default priority. This will not happen whith a script/game, since thore are run with a higher priority ([as can be seen here](https://github.com/godotengine/godot/blob/9b522ac1a85cab1a7a867b7a9f3bb102d9376ac2/platform/windows/display_server_windows.cpp#L4800-L4815)).
+If you test this in the editor, by setting the `Playing` property to `true` there, you may get audio glitches. This is due to the fact that editor windows are running with default priority.
+This will not happen with a script/game, since those are run with a higher priority ([as can be seen here](https://github.com/godotengine/godot/blob/9b522ac1a85cab1a7a867b7a9f3bb102d9376ac2/platform/windows/display_server_windows.cpp#L4800-L4815)).
 
 ## Cloning the Extension
 Since this project includes `godot-cpp` and `libxmp` as submodules, you'll have to clone it with `git clone --recurse-submodules`.
