@@ -45,4 +45,4 @@ scons # this will use the default values such as target=template_debug
 For the initial build you can run the vscode task `initial-build-extension`. This compiles both `godot-cpp` and the extension. For all subsequent builds, you only need to run the task `build-extension`.
 
 ## Previous Versions
-Check out the `godot-4.2.1-stable` tag for a Godot 4.2 compatible version.
+Check out the [`godot-4.2.1-stable`](https://github.com/oparisy/gdextension-module/releases/tag/godot-4.2.1-stable) tag for a Godot 4.2 compatible version.
