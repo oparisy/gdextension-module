@@ -1,6 +1,6 @@
 # GDExtension Module Player
 
-This repository provides an example of real-time Godot 4.2 sound generation by integrating the [libxmp-lite](https://github.com/libxmp/libxmp/tree/master/lite) module-decoding library in a custom `AudioStream` with the GDExtension system.
+This repository provides an example of real-time Godot 4.3 sound generation by integrating the [libxmp-lite](https://github.com/libxmp/libxmp/tree/master/lite) module-decoding library in a custom `AudioStream` with the GDExtension system.
 
 It is mostly a proof of concept, but I'm open to PRs if this proves useful to someone. Note that a pure GDScript module player exists ([Godot Mod Player](https://godotengine.org/asset-library/asset/841)).
 
@@ -43,3 +43,6 @@ scons # this will use the default values such as target=template_debug
 
 ### VSCode Compilation
 For the initial build you can run the vscode task `initial-build-extension`. This compiles both `godot-cpp` and the extension. For all subsequent builds, you only need to run the task `build-extension`.
+
+## Previous Versions
+Check out the `godot-4.2.1-stable` tag for a Godot 4.2 compatible version.
